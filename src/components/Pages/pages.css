@@ -1,0 +1,14 @@
+.horario{
+
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
+.periodo{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
