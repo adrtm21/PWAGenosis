@@ -11,7 +11,7 @@ function NavBar() {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            GENSOSIS 
+            GNOSIS 
             <i className="fas fa-graduation-cap"></i>
           </NavLink>
 
