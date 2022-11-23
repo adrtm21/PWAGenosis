@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios  from 'axios';
+import {AlumnosServive, API} from '../API/API';
+import  Component  from 'react';
+/*
+export default class ContactUs extends Component{
+    constructor(){
+        super();
+        this.state = {};
+        this.AlumnosServive = new AlumnosServive();
+    }
 
-export const ContactUs = () => {
-    return(
+    componentDidMount(){
+        this.AlumnosServive.getAll.then(data =>{
+            console.log(data);
+        })
+    }
+
+    render(){
+        return(
+            <h1>HELLO</h1>
+        )
+    }
+}*/
+
+function ContactUs(){
+    
+    useEffect(() => {
+        axios.get('http://localhost:8080/Control/alumnos/json/13747')
+        .then(res => console.log(res.data)).catch(err => console.log(err))
+    }, []);
+    
+    return (
         <div>
-            <h1>Contact Us</h1>
+            AXIOS CON useEffect 
         </div>
     );
 }
+
+
+export default ContactUs;

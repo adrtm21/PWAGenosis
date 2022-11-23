@@ -1,7 +1,10 @@
 import './pages.css'
 import React, { useState } from 'react';
 import { Tabs, Tab, Typography } from '@mui/material';
-
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import NativeSelect from '@mui/material/NativeSelect';
 
 const Panel = (props) => (
   <div hidden={props.value !== props.index}>
@@ -18,24 +21,35 @@ export const Horario = () => {
 
   return(
   <div className="horario">
-      <h1>BIENVENIDO:(NOMBRE DEL ALUMNO) </h1>
+      <h6>BIENVENIDO:(Nombre) </h6>
       <hr></hr>
-      <form className="periodo">
-        <label>
-          PERIODO : <input type="text" name="name" />
-        </label>
-       <input type="submit" value="Submit" />
-      </form>
+      <Box sx={{ minWidth: 60 }}>
+      <FormControl fullWidth>
+        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+          Periodo
+        </InputLabel>
+        <NativeSelect
+          defaultValue={30}
+          inputProps={{
+            name: 'age',
+            id: 'uncontrolled-native',
+          }}
+        >
+          <option value={10}>ENERO-JULIO</option>
+          <option value={20}>AGOSTO-DICIEMBRE</option>
+        </NativeSelect>
+      </FormControl>
+    </Box>
       <hr></hr>
      
       <div style={{display: 'flex'}}>
         
         <Tabs orientation='vertical' scrollButtons='off' value= {index} onChange={onTabClicked}>
-          <Tab label= 'first tab'/>
-          <Tab label= 'second tab'/>
-          <Tab label= 'third tab'/>
-          <Tab label= 'fourd tab'/>
-          <Tab label= 'five tab'/>
+          <Tab label= 'Lunes'/>
+          <Tab label= 'Martes'/>
+          <Tab label= 'Miercoles'/>
+          <Tab label= 'Jueves'/>
+          <Tab label= 'Viernes '/>
         </Tabs>
 
         <Panel value= {index} index={0}>
@@ -55,6 +69,7 @@ export const Horario = () => {
         </Panel>
       </div>
   </div>
+
   );
 };
 
