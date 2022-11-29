@@ -56,6 +56,94 @@ function NavBar() {
                 Contact Us
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/reinscripcion"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Reinscripción
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/kardex"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+               Kardex
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/pagos"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+               Pagos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/evaluaciondocente"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+               Evaluación Docente
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/actualizaciondatos"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+               Actualización de Datos
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/inscripcioningles"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Inscripción Ingles
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/inscripcioncomplementaria"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Inscripción De Actividad Complementaria
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/solicitudbaja"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Solicitud De Baja
+              </NavLink>
+            </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>

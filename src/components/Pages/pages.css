@@ -14,3 +14,42 @@
     padding-bottom: 5px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #4b4a4a90;
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+
+main{
+    max-width: 800px;
+    width: 90%;
+    text-align: left;
+    margin: auto;
+    padding-top: 10px;
+    padding-left:  5px;
+}
+
+
+.Titulo{
+    font-size: 25px;
+    text-align: center;
+    padding-left: 5px;
+    padding-bottom: 25px;
+    color: black;
+  }
+  
+  .Titulo2{
+    padding-top: 35px;
+    font-size: 25px;
+    padding-left: 5px;
+    color: black;
+  }
+  

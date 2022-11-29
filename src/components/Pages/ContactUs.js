@@ -26,7 +26,7 @@ export default class ContactUs extends Component{
 function ContactUs(){
     
     useEffect(() => {
-        axios.get('http://localhost:8080/Control/alumnos/json/13747')
+        axios.get('http://192.168.1.67:8080/Control/alumnos/json/13747')
         .then(res => console.log(res.data)).catch(err => console.log(err))
     }, []);
     
