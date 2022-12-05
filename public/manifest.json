@@ -1,6 +1,6 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Gnosis APP",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "http://192.168.1.81:3000/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

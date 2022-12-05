@@ -1,4 +1,6 @@
 import React, {useEffect} from 'react';
+import Slider from "react-touch-drag-slider";
+import Carousel from './Carousel.js';
 
 
 export const Home = () => {
@@ -36,13 +38,17 @@ async function downloadApp() {
     setIsReadyForInstall(false);
   }
 
+  
     return(
+      <main>
         <div className='home'>
             <h1>PAGINA PRINCPAL</h1>
             {isReadyForInstall && (<button onClick={downloadApp}>
                 DESCARGA LA APP GNOSIS AQUI
             </button>)}
-
         </div>
-    );
+      <Carousel/>       
+  </main>
+);
+
 }

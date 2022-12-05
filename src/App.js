@@ -11,11 +11,11 @@ import Login from './components/login/login';
 import { InscripcionIngles } from './components/Pages/Inscripcioningles';
 import { Kardex } from './components/Pages/Kardex';
 import { Pagos } from './components/Pages/Pagos';
-import { EvaluacionDocente } from './components/Pages/EvaluacionDocente';
+import EvaluacionDocente from './components/Pages/EvaluacionDocente';
 import { InscripcionComplementria } from './components/Pages/InscripcionComplementaria';
 import { SolicitudBaja } from './components/Pages/SolicitudBaja';
 import {ActualizacionDatos} from './components/Pages/ActualizacionDatos';
-
+import {carousel} from './components/Pages/Carousel'
 
 function App() {
   return (

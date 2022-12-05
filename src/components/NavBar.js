@@ -10,14 +10,14 @@ function NavBar() {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          <NavLink exact to="/home" className="nav-logo">
             GNOSIS 
             <i className="fas fa-graduation-cap"></i>
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink exact to="/horario" activeClassName="active" className="nav-links"
+              <NavLink exact to="/horario" activeclassname="active" className="nav-links"
                 onClick={handleClick}
               >
                 Horario
@@ -25,9 +25,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/calificaciones"
-                activeClassName="active"
+                exact to="/calificaciones"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -36,9 +35,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/blog"
-                activeClassName="active"
+                exact to="/blog"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -47,9 +45,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/contactUs"
-                activeClassName="active"
+                exact to="/contactUs"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -58,9 +55,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/reinscripcion"
-                activeClassName="active"
+                exact to="/reinscripcion"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -69,9 +65,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/kardex"
-                activeClassName="active"
+                exact to="/kardex"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -80,9 +75,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/pagos"
-                activeClassName="active"
+                exact to="/pagos"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -91,9 +85,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/evaluaciondocente"
-                activeClassName="active"
+                exact to="/evaluaciondocente"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -102,9 +95,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/actualizaciondatos"
-                activeClassName="active"
+                exact to="/actualizaciondatos"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -113,9 +105,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
-                to="/inscripcioningles"
-                activeClassName="active"
+                exact to="/inscripcioningles"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -126,7 +117,7 @@ function NavBar() {
               <NavLink
                 exact
                 to="/inscripcioncomplementaria"
-                activeClassName="active"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -137,7 +128,7 @@ function NavBar() {
               <NavLink
                 exact
                 to="/solicitudbaja"
-                activeClassName="active"
+                activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >

@@ -1,12 +1,29 @@
 
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
+import axios from "axios";
 import { Formulario, ContenedorBotonCentrado, Boton, MensajeExito} from "../elementos/Formularios";
 import Input from "../input";
 import '../Pages/pages.css';
 import { RadioButtonSex } from "../RadioButtons";
 import {SelectInput, SelectInputEntidadFederativ, SelectInputEspecialidad, SelectInputEstado, SelectInputEstadoCivil, SelectInputgrupoindigena, SelectInputInstitucionEdu, SelectInputLenguaIndigena, SelectInputLocalidad, SelectInputMunicipio, SelectInputNacimiento} from "../selectinput";
+
+
 export const ActualizacionDatos = () => {
-  
+
+  //**  PETICION A LA API */
+  //**                    */
+  //**                    */
+  const [data, setData ] = useState([]);
+
+
+  useEffect(() => {
+      axios.get('http://localhost:8080/Control/alumnos/json/13747')
+      .then(res => {
+          console.log("Getting from :::", res.data)
+          setData(res.data)
+      }).catch(err => console.log(err))
+  }, []);
+
  
     const[usuario, cambiarUsuario]= useState({Campo:'', valido: null});
     const[nombre, cambiarNombre]= useState({Campo:'', valido: null});
@@ -69,7 +86,7 @@ export const ActualizacionDatos = () => {
   
     return ( 
 
-      <div>
+      <div className="Contenedor-Form">
       <main>
       <h1 className="Titulo">Datos generales</h1>
         <Formulario action="" onSubmit={onSubmit}>
@@ -79,7 +96,7 @@ export const ActualizacionDatos = () => {
           /*cambiarEstado={cambiarUsuario}*/
            tipo="text"
            label="Numero De Control"
-           placeholder="TE123"
+           placeholder={data.numeroControl}
            name="Ncontrol"
            leyendaError=""
            expresionRegular={expresiones.usuario}
@@ -90,7 +107,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={cambiarNombre}
            tipo="text"
            label="Nombre(s)"
-           placeholder="John Doe"
+           placeholder={data.nombre}
            name="nombres"
            leyendaError="El nombre solo puede contener letras y espacios."
            expresionRegular={expresiones.nombre}
@@ -100,7 +117,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={cambiarNombre}
            tipo="text"
            label="Apellido Paterno"
-           placeholder="Diaz"
+           placeholder={data.apellidoPaterno}
            name="ApePaterno"
            leyendaError="El nombre solo puede contener letras y espacios."
            expresionRegular={expresiones.nombre}
@@ -110,7 +127,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={cambiarNombre}
            tipo="text"
            label="Apellido Materno"
-           placeholder="Magaña"
+           placeholder={data.apellidoMaterno}
            name="ApeMa"
            leyendaError="El nombre solo puede contener letras y espacios."
            expresionRegular={expresiones.nombre}
@@ -120,9 +137,9 @@ export const ActualizacionDatos = () => {
            <Input
            estado={password}
            cambiarEstado={cambiarPassword}
-           tipo="date"
            label="Fecha de Nacimiento"
-           name="00/00/0000"
+           name= {data.fechaNacimiento}
+           placeholder={data.fechaNacimiento}
            leyendaError="La contraseña tiene que ser de 4 a 12 digitos."
            expresionRegular={""}
            />
@@ -136,7 +153,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={nombre}
            tipo="name"
            label="CURP(Clave Única de Registro de Población)"
-           name="curp"
+           placeholder={data.curp}
            leyendaError=""
            funcion={""}
            />
@@ -144,9 +161,9 @@ export const ActualizacionDatos = () => {
            <Input
            estado={nombre}
            cambiarEstado={nombre}
-           tipo="telefono"
+           tipo="name"
            label="RFC (Registro Federal de Contribuyentes"
-           name="RFC"
+           placeholder={data.rfc}
            leyendaError=""
            funcion={""}
            />
@@ -158,8 +175,8 @@ export const ActualizacionDatos = () => {
            cambiarEstado={cambiarTelefono}
            tipo="number"
            label="Telefono"
-           placeholder=""
-           name="celular"
+           placeholder={data.telefono}
+           name=""
            leyendaError=""
            expresionRegular={expresiones.telefono}
            />
@@ -169,7 +186,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={cambiarCorreo}
            tipo="email"
            label="Correo electronico"
-           placeholder="hsadbh@hotmail.com"
+           placeholder={data.correoElectronico}
            name="Correo"
            leyendaError="Esto no parece un correo electronico valido"
            expresionRegular={expresiones.correo}
@@ -195,7 +212,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="number"
            label="Año de Egreso"
-           placeholder="2000"
+           placeholder={data.ano}
            name="AñoEgreso"
            />
            <SelectInputEspecialidad/>
@@ -205,7 +222,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="text"
            label="Calle"
-           placeholder="Av. etc etc"
+           placeholder={data.calle}
            name="Calle"
            />
            <Input
@@ -213,7 +230,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="number"
            label="Número Exterior"
-           placeholder=""
+           placeholder={data.numeroExterior}
            name="NumeroExt"
            />
            <Input
@@ -221,7 +238,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="number"
            label="Número Interior"
-           placeholder=""
+           placeholder={data.numeroInterior}
            name="NumeroInt"
            />
            <Input
@@ -229,7 +246,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="text"
            label="Colonia"
-           placeholder=""
+           placeholder={data.colonia}
            name="Colonia"
            />
            <Input
@@ -237,7 +254,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="number"
            label="Codigo Postal"
-           placeholder=""
+           placeholder={data.codigoPostal}
            name="Cp"
            />
   

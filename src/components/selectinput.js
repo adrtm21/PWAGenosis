@@ -20,8 +20,8 @@ export const SelectInput =() =>{
           }}
         >
           <option value={1}>Tabasco</option>
-          <option value={2}>Prieto landia</option>
-          <option value={3}>Mordor</option>
+          <option value={2}>Campeche</option>
+          <option value={3}>Chiapas</option>
         </NativeSelect>
       </FormControl>
     </Box>
