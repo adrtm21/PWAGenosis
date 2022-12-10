@@ -42,9 +42,8 @@ export const Horario = () => {
     </Box>
       <hr></hr>
      
-      <div style={{display: 'flex'}}>
         
-        <Tabs orientation='vertical' scrollButtons='off' value= {index} onChange={onTabClicked}>
+        <Tabs variant='scrollable' scrollButtons='on' orientation='Horizontal'  value= {index} onChange={onTabClicked}>
           <Tab label= 'Lunes'/>
           <Tab label= 'Martes'/>
           <Tab label= 'Miercoles'/>
@@ -67,7 +66,7 @@ export const Horario = () => {
         <Panel value= {index} index={4}>
           five tab
         </Panel>
-      </div>
+
   </div>
 
   );

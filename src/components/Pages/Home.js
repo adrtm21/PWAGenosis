@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react';
 import Slider from "react-touch-drag-slider";
 import Carousel from './Carousel.js';
-
+import AuthService from '../services/auth.service.js';
 
 export const Home = () => {
+  const currentUser = AuthService.getCurrentUser();
+
+
     const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
 
 useEffect(() => {
@@ -18,6 +21,9 @@ useEffect(() => {
   });
 }, []);
 
+
+
+    console.log()
 async function downloadApp() {
     console.log("👍", "butInstall-clicked");
     const promptEvent = window.deferredPrompt;
@@ -47,8 +53,18 @@ async function downloadApp() {
                 DESCARGA LA APP GNOSIS AQUI
             </button>)}
         </div>
-      <Carousel/>       
-  </main>
+        <Carousel/>  
+        <h3>
+          <strong>{currentUser.userName}</strong> Profile
+        </h3>
+        
+
+
+      </main>
+
+      
+        
+  
 );
 
 }

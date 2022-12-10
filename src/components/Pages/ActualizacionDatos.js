@@ -6,10 +6,13 @@ import Input from "../input";
 import '../Pages/pages.css';
 import { RadioButtonSex } from "../RadioButtons";
 import {SelectInput, SelectInputEntidadFederativ, SelectInputEspecialidad, SelectInputEstado, SelectInputEstadoCivil, SelectInputgrupoindigena, SelectInputInstitucionEdu, SelectInputLenguaIndigena, SelectInputLocalidad, SelectInputMunicipio, SelectInputNacimiento} from "../selectinput";
-
+import AuthService from "../services/auth.service";
+import authHeader from "../services/auth-header";
 
 export const ActualizacionDatos = () => {
 
+  const currentUser = AuthService.getCurrentUser();
+  const API_URL= 'http://localhost:8080/Control/';
   //**  PETICION A LA API */
   //**                    */
   //**                    */
@@ -17,7 +20,7 @@ export const ActualizacionDatos = () => {
 
 
   useEffect(() => {
-      axios.get('http://localhost:8080/Control/alumnos/json/13747')
+      axios.get(API_URL + 'alumnos/json/' + currentUser.userId, { headers:{ 'Authorization' : 'Bearer ' + currentUser.token}})
       .then(res => {
           console.log("Getting from :::", res.data)
           setData(res.data)
