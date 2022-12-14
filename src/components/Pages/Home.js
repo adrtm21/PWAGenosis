@@ -23,7 +23,7 @@ useEffect(() => {
 
 
 
-    console.log()
+   
 async function downloadApp() {
     console.log("👍", "butInstall-clicked");
     const promptEvent = window.deferredPrompt;

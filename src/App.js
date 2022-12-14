@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Horario } from "./components/Pages/Horario";
-import { BoletaCalificaciones } from "./components/Pages/BoletaCalificaciones";
+import  BoletaCalificaciones  from "./components/Pages/BoletaCalificaciones";
 import  {Blog} from "./components/Pages/Blog";
 import  ContactUs  from "./components/Pages/ContactUs";
 import { Home } from "./components/Pages/Home";

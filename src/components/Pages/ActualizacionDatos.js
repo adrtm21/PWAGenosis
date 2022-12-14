@@ -1,4 +1,3 @@
-
 import React,{useState, useEffect} from "react";
 import axios from "axios";
 import { Formulario, ContenedorBotonCentrado, Boton, MensajeExito} from "../elementos/Formularios";
@@ -12,11 +11,14 @@ import authHeader from "../services/auth-header";
 export const ActualizacionDatos = () => {
 
   const currentUser = AuthService.getCurrentUser();
+
   const API_URL= 'http://localhost:8080/Control/';
   //**  PETICION A LA API */
   //**                    */
   //**                    */
   const [data, setData ] = useState([]);
+
+  console.log(currentUser.token)
 
 
   useEffect(() => {

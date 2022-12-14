@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios  from 'axios';
-import {AlumnosServive, API} from '../API/API';
 import  Component  from 'react';
 /*
 export default class ContactUs extends Component{

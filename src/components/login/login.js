@@ -33,7 +33,7 @@ const Login = () => {
 
   const onChangePassword = (e) => {
     const password = e.target.value;
-    setPassword(md5(password));
+    setPassword(password);
   };
 
   const handleLogin = (e) => {
@@ -45,7 +45,7 @@ const Login = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(user, password).then(
+      AuthService.login(user, md5(password)).then(
         () => {
           navigate("/home");
           window.location.reload();
