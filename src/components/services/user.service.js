@@ -9,9 +9,9 @@ const getUserBoard = () => {
 };
 
 
+
 const UserService = {
-  getPublicContent,
-  getUserBoard,
+  getUserBoard
 };
 
 export default UserService;

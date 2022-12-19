@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from "react";
 import axios from "axios";
-import { Formulario, ContenedorBotonCentrado, Boton, MensajeExito} from "../elementos/Formularios";
-import Input from "../input";
+import { Formulario, ContenedorBotonCentrado,ContenedorBotonActualizar, Boton, MensajeExito, Botonactualizar, Botonenviar, Botoncancelar} from "../elementos/Formularios";
 import '../Pages/pages.css';
+import Input from "../input";
 import { RadioButtonSex } from "../RadioButtons";
 import {SelectInput, SelectInputEntidadFederativ, SelectInputEspecialidad, SelectInputEstado, SelectInputEstadoCivil, SelectInputgrupoindigena, SelectInputInstitucionEdu, SelectInputLenguaIndigena, SelectInputLocalidad, SelectInputMunicipio, SelectInputNacimiento} from "../selectinput";
 import AuthService from "../services/auth.service";
@@ -199,7 +199,7 @@ export const ActualizacionDatos = () => {
            <SelectInputgrupoindigena/>
            <SelectInputLenguaIndigena/>
   
-           <h1 className="Titulo2">Bachillerato de Procedencia</h1>
+           <h1 className="Titulo">Bachillerato de Procedencia</h1>
   
            <SelectInputEntidadFederativ/>
            <SelectInputInstitucionEdu/>
@@ -209,7 +209,7 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="number"
            label="Promedio General"
-           placeholder="0.00"
+           placeholder={data.promedioGeneralProcedencia}
            name="Promedio General"
            />
            <Input
@@ -217,11 +217,11 @@ export const ActualizacionDatos = () => {
            cambiarEstado={""}
            tipo="number"
            label="Año de Egreso"
-           placeholder={data.ano}
+           placeholder={data.anioEgresoProcedencia}
            name="AñoEgreso"
            />
            <SelectInputEspecialidad/>
-           <h1 className="Titulo2">Domicilio</h1>
+           <h1 className="Titulo">Domicilio</h1>
            <Input
            estado={""}
            cambiarEstado={""}
@@ -268,11 +268,21 @@ export const ActualizacionDatos = () => {
            <SelectInputMunicipio/>
   
            <SelectInputLocalidad/>
-  
-            <ContenedorBotonCentrado>
-               <Boton type="submit">Enviar</Boton>
+           <ContenedorBotonActualizar>
+           <Botonactualizar type="button">Actualizar Datos</Botonactualizar>
+           </ContenedorBotonActualizar>
+
+           <ContenedorBotonCentrado>
+               <Botonenviar type="submit">Enviar</Botonenviar>
+               
                {formularioValido === true && <MensajeExito>Formulario enviado exitosamente!</MensajeExito>}
-            </ContenedorBotonCentrado>
+              
+              <Botoncancelar type="button">Cancelar</Botoncancelar>
+             
+             
+             </ContenedorBotonCentrado>
+  
+            
         </Formulario>
       </main>
       </div>

@@ -35,12 +35,12 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/blog"
+                exact to="/reinscripcion"
                 activeclassname="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Blog
+                Reinscripcion
               </NavLink>
             </li>
             <li className="nav-item">
@@ -51,16 +51,6 @@ function NavBar() {
                 onClick={handleClick}
               >
                 Contact Us
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact to="/reinscripcion"
-                activeclassname="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Reinscripción
               </NavLink>
             </li>
             <li className="nav-item">

@@ -1,7 +1,7 @@
 import './pages.css'
 
 /*    Imports scroll dias    */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
@@ -15,8 +15,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-
+import AuthService from '../services/auth.service';
+import axios from 'axios';
 
 const Panel = (props) => (
   <div hidden={props.value !== props.index}>
@@ -24,20 +24,7 @@ const Panel = (props) => (
   </div>
 )
 
-/* FUNCIONES DE LA TABLA  */
-function createData(name, dias) {
-  return { name, dias};
-}
 
-const rows = [
-  createData('Materia 1', 159),
-  createData('Materia 2', 237),
-  createData('Materia 3', 262),
-  createData('Materia 4', 305),
-  createData('Materia 5', 356),
-  createData('Materia 6', 356),
-  createData('Materia 7', 356),
-];
 
 /*   FUNCIONES TABLAS DENTRO DE... */
 function TabPanel(props) {
@@ -52,7 +39,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 5 }}>
+        <Box sx={{ p: 7 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -74,16 +61,47 @@ function a11yProps(index) {
 }
 
 export const Horario = () => {
+
+  const currentUser = AuthService.getCurrentUser();
+
+  const API_URL= 'http://localhost:8080/Control/';
+  //**  PETICION A LA API */
+  const [data, setData ] = useState([]);
+
+
+  useEffect(() => {
+
+      axios.get(API_URL + 'alumnos/asignaturas/json/data/carga/horaria/115/' + currentUser.userId, { headers:{ 'Authorization' : 'Bearer ' + currentUser.token}})
+      .then(res => {
+          console.log("Getting from :::", res.data)
+          setData(res.data)
+      }).catch(err => console.log(err))
+  }, []);
+
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const keys = Object.keys(data);
+
   return(
     <main>
       <div className="horario">
-        <h6>BIENVENIDO:(Nombre) </h6>
+        <h6>BIENVENIDO: {currentUser.userName}  </h6>
+        <li>
+        {
+          keys.forEach(key=> {
+            data[key].map((bit)=>
+             console.log(bit.horarios)
+          
+            )
+          })
+        }
+        
+        </li>
         <hr></hr> 
       </div>
 
@@ -95,11 +113,11 @@ export const Horario = () => {
             <TableCell>MATERIAS</TableCell>
             <TableCell align="center">
             <Box
-          sx={{
-          flexGrow: 1,
-          maxWidth: { xs: 180, sm: 180 },
-          bgcolor: 'background.paper',
-          }}>
+              sx={{
+              flexGrow: 1,
+              maxWidth: { xs: 180, sm: 180 },
+              bgcolor: 'background.paper',
+            }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -119,6 +137,8 @@ export const Horario = () => {
             <Tab label="Miercoles" {...a11yProps(2)}/>
             <Tab label="Jueves" {...a11yProps(3)}/>
             <Tab label="Viernes" {...a11yProps(4)}/>
+            <Tab label="Sabado" {...a11yProps(5)}/>
+            <Tab label="Domingo" {...a11yProps(6)}/>
           </Tabs>
         </Box>
         
@@ -127,34 +147,44 @@ export const Horario = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell>
-               <TabPanel value={value} index={0}>
-                LUNES 
-                {row.dias}
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                MARTES
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                MIERCOLES
-                </TabPanel>
-                <TabPanel value={value} index={3}>
-                JUEVES
-                </TabPanel>
-                <TabPanel value={value} index={4}>
-                VIERNES
-                </TabPanel>
-              </TableCell>
-            </TableRow>
-          ))}
+          
+          {
+            //keys.forEach(key=> {
+              data[keys]?.map((bit) => (
+              <TableRow
+                key={bit}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                {bit.asignatura.asignatura}
+                </TableCell>
+                <TableCell>
+                  <TabPanel value={value} index={0}>
+                  {bit.horarios == 0 && bit.horarios}                 
+                  </TabPanel>
+                  <TabPanel value={value} index={1}>
+                     MARTES
+                  </TabPanel>
+                  <TabPanel value={value} index={2}>
+                    MIERCOLES
+                  </TabPanel>
+                  <TabPanel value={value} index={3}>
+                    JUEVES
+                  </TabPanel>
+                  <TabPanel value={value} index={4}>
+                    VIERNES
+                  </TabPanel>
+                  <TabPanel value={value} index={5}>
+                    SABADO
+                  </TabPanel>
+                  <TabPanel value={value} index={6}>
+                    DOMINGO
+                  </TabPanel>
+                </TableCell>
+              </TableRow>
+              )) // Cierre de llaves del map()
+            //})
+          }
         </TableBody>
       </Table>
      </TableContainer>

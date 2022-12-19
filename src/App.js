@@ -1,5 +1,5 @@
 import './App.css';
-
+import React, {Component} from 'react';
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Horario } from "./components/Pages/Horario";
@@ -15,20 +15,57 @@ import EvaluacionDocente from './components/Pages/EvaluacionDocente';
 import { InscripcionComplementria } from './components/Pages/InscripcionComplementaria';
 import { SolicitudBaja } from './components/Pages/SolicitudBaja';
 import {ActualizacionDatos} from './components/Pages/ActualizacionDatos';
-import {carousel} from './components/Pages/Carousel'
+import AuthService from './components/services/auth.service';
+import eventBus from './components/commons/EventBus';
+import {Reinscripcion} from './components/Pages/Reinscripcion'
 
-function App() {
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.logOut = this.logOut.bind(this);
+
+    this.state = {
+      showModeratorBoard: false,
+      showAdminBoard: false,
+      currentUser: undefined,
+    };
+  }
+  componentDidMount() {
+    const user = AuthService.getCurrentUser();
+
+    
+    eventBus.on("logout", () => {
+      this.logOut();
+    });
+  }
+
+componentWillUnmount() {
+  eventBus.remove("logout");
+}
+
+  logOut() {
+    AuthService.logout();
+    this.setState({
+      showModeratorBoard: false,
+      showAdminBoard: false,
+      currentUser: undefined,
+    });
+  }
+  render(){
   return (
+    
     <>
     <Router>
       <NavBar/>
+      
       <div className="pages">
         <Routes>
           <Route path="/" element={<Login/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/horario" element={<Horario/>} />
           <Route path="/calificaciones" element={<BoletaCalificaciones/>} />
-          <Route path="/blog" element={<Blog/>} />
+          <Route path="/reinscripcion" element={<Reinscripcion/>} />
           <Route path="/contactUs" element={<ContactUs/>} />
           <Route path="/actualizaciondatos" element={<ActualizacionDatos/>} />
           <Route path="/inscripcioningles" element={<InscripcionIngles/>} />
@@ -39,9 +76,11 @@ function App() {
           <Route path="/solicitudbaja" element={<SolicitudBaja/>} />
         </Routes>
       </div>
+      <authVerify logOut={this.logOut}/>
     </Router>
     </>
   );
+  }
 }
 
 export default App;

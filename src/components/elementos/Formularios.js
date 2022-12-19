@@ -25,10 +25,11 @@ const Label =styled.label`
 font-size: 15px;
 display: block;
 font-weight: 700;
-padding: 10px;
+padding: 15px;
 min-height: 40px;
 cursor: pointer;
 color: black;
+font-style:var()
 
  ${props => props.valido === 'false' && css`
  color: ${colores.error};
@@ -50,6 +51,10 @@ line-height: 45px;
 padding: 0 48px 0 18px;
 transition: .3s ease all;
 border: 3px solid transparent;
+
+::placeholder{
+    color: black;
+}
 
 
 &:focus {
@@ -116,21 +121,26 @@ input {
 
 `;
 
-const ContenedorBotonCentrado = styled.div`
+const ContenedorBotonActualizar = styled.div`
+padding-top: 45px;
+padding-bottom: 35px;
 display: flex;
-flex-direction: column;
-align-items: center;
-grid-column: span 2;
-@media (max-width: 800px){
-    grid-column: span 1;
-}
+justify-content: center;
+
 `;
 
-const Boton = styled.button`
+const ContenedorBotonCentrado = styled.div`
+display: inline-flex;
+justify-content: space-between;
+
+`;
+
+const Botonenviar = styled.button`
 height: 45px;
 line-height: 45px;
+padding-left: 24px;
 width: 30%;
-background: #000;
+background: blue;
 color: #fff;
 font-weight: bold;
 border: none;
@@ -142,6 +152,41 @@ transition:.1s ease all;
     box-shadow: 3px 0px 30px rgba(163,163,163, 1);
 }
 `;
+
+const Botonactualizar = styled.button`
+height: 45px;
+line-height: 45px;
+width: 40%;
+background: black;
+color: #fff;
+font-weight: bold;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+transition:.1s ease all;
+
+&:hover {
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+`;
+const Botoncancelar = styled.button`
+height: 45px;
+padding-left: 16px;
+line-height: 45px;
+width: 30%;
+background: red;
+color: #fff;
+font-weight: bold;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+transition:.1s ease all;
+
+&:hover {
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+`;
+
 
 const MensajeExito = styled.p`
 font-size: 14px;
@@ -171,7 +216,10 @@ export {Formulario,
      IconoValidacion,
      ContenedorTerminos,
      ContenedorBotonCentrado,
-     Boton,
+     Botonactualizar,
+     Botoncancelar,
+     Botonenviar,
      MensajeError,
-     MensajeExito
+     MensajeExito,
+     ContenedorBotonActualizar
     };

@@ -39,11 +39,15 @@ main{
 
 
 .Titulo{
+    font: bold 250% sans-serif;
     font-size: 25px;
     text-align: center;
     padding-left: 5px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
+    padding-top: 15px;
     color: black;
+   
+
   }
   
   .Titulo2{
