@@ -87,11 +87,9 @@ export const Horario = () => {
 
   const keys = Object.keys(data);
 
-  return(
-    <main>
-      <div className="horario">
-        <h6>BIENVENIDO: {currentUser.userName}  </h6>
-        <li>
+
+  /*
+  <li>
         {
           keys.forEach(key=> {
             data[key].map((bit)=>
@@ -102,6 +100,11 @@ export const Horario = () => {
         }
         
         </li>
+  */
+  return(
+    <main>
+      <div className="horario">
+        <h6>BIENVENIDO: {currentUser.userName}  </h6>
         <hr></hr> 
       </div>
 
@@ -155,30 +158,30 @@ export const Horario = () => {
                 key={bit}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                {bit.asignatura.asignatura}
+                <TableCell align='center' size='small' component="th" scope="row">
+                <p>{bit.asignatura.asignatura.replace("<br>", " ")}</p>
                 </TableCell>
-                <TableCell>
+                <TableCell align='center' size='small'>
                   <TabPanel value={value} index={0}>
-                  {bit.horarios == 0 && bit.horarios}                 
+                  {bit.horarios[1]?.replace("<br>", " ")}               
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                     MARTES
+                  {bit.horarios[2]?.replace("<br>", " ")}
                   </TabPanel>
                   <TabPanel value={value} index={2}>
-                    MIERCOLES
+                  {bit.horarios[3]?.replace("<br>", " ")}
                   </TabPanel>
                   <TabPanel value={value} index={3}>
-                    JUEVES
+                  {bit.horarios[4]?.replace("<br>", " ")}
                   </TabPanel>
                   <TabPanel value={value} index={4}>
-                    VIERNES
+                  {bit.horarios[5]?.replace("<br>", " ")}
                   </TabPanel>
                   <TabPanel value={value} index={5}>
-                    SABADO
+                  {bit.horarios[6]?.replace("<br>", " ")}
                   </TabPanel>
                   <TabPanel value={value} index={6}>
-                    DOMINGO
+                  {bit.horarios[0]?.replace("<br>", " ")}
                   </TabPanel>
                 </TableCell>
               </TableRow>

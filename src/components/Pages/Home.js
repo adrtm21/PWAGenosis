@@ -48,18 +48,14 @@ async function downloadApp() {
     return(
       <main>
         <div className='home'>
-            <h1>PAGINA PRINCPAL</h1>
+            <h3>{currentUser.userName}</h3>
+
             {isReadyForInstall && (<button onClick={downloadApp}>
                 DESCARGA LA APP GNOSIS AQUI
             </button>)}
         </div>
+        <hr></hr>
         <Carousel/>  
-        <h3>
-          <strong>{currentUser.userName}</strong> Profile
-        </h3>
-        
-
-
       </main>
 
       
