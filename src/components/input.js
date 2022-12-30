@@ -6,7 +6,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-const ComponenteInput =({estado,cambiarEstado,tipo,label, placeholder,name,leyendaError, expresionRegular,funcion}) => {
+const ComponenteInput =({estado,disabled,cambiarEstado,tipo,label, placeholder,name,leyendaError, expresionRegular,funcion}) => {
     const onChange = (e) => {
         cambiarEstado({...estado, campo: e.target.value});
     }
@@ -36,6 +36,7 @@ const ComponenteInput =({estado,cambiarEstado,tipo,label, placeholder,name,leyen
           onKeyUp={validacion}
           onBlur={validacion}
           valido={estado.valido}
+          disabled={disabled}
            />
         <IconoValidacion
           icon={estado.valido === 'true' ? faCheckCircle : faTimesCircle}

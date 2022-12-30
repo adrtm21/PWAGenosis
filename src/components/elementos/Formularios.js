@@ -11,8 +11,10 @@ const Formulario = styled.form `
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 20px;
-   position: relative;
+   position: relative; 
    z-index: 10;
+   top: 10px;
+
 
    @media (max-width: 800px){
     grid-template-columns: 1fr;
@@ -122,7 +124,7 @@ input {
 `;
 
 const ContenedorBotonActualizar = styled.div`
-padding-top: 45px;
+padding-top: 45px; 
 padding-bottom: 35px;
 display: flex;
 justify-content: center;
@@ -138,6 +140,28 @@ justify-content: space-between;
 const Botonenviar = styled.button`
 height: 45px;
 line-height: 45px;
+padding-left: 10px;
+width: 25%;
+background: blue;
+color: #fff;
+font-weight: bold;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+transition:.1s ease all;
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 100;
+
+&:hover {
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+`;
+
+const Botoninscribir = styled.button`
+height: 45px;
+line-height: 45px;
 padding-left: 24px;
 width: 30%;
 background: blue;
@@ -147,23 +171,10 @@ border: none;
 border-radius: 3px;
 cursor: pointer;
 transition:.1s ease all;
-
-&:hover {
-    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
-}
-`;
-
-const Botonactualizar = styled.button`
-height: 45px;
-line-height: 45px;
-width: 40%;
-background: black;
-color: #fff;
-font-weight: bold;
-border: none;
-border-radius: 3px;
-cursor: pointer;
-transition:.1s ease all;
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 100;
 
 &:hover {
     box-shadow: 3px 0px 30px rgba(163,163,163, 1);
@@ -216,7 +227,7 @@ export {Formulario,
      IconoValidacion,
      ContenedorTerminos,
      ContenedorBotonCentrado,
-     Botonactualizar,
+     Botoninscribir,
      Botoncancelar,
      Botonenviar,
      MensajeError,

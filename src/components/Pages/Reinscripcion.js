@@ -1,11 +1,12 @@
 
 import React,{useState, useEffect} from "react";
 import axios from "axios";
-import { Formulario, ContenedorBotonCentrado, Boton, MensajeExito} from "../elementos/Formularios";
+import { Formulario, ContenedorBotonCentrado, Boton, MensajeExito, Botoninscribir, Botonenviar} from "../elementos/Formularios";
 import {SelectInput, SelectInputEntidadFederativ, SelectInputEspecialidad, SelectInputEstado, SelectInputEstadoCivil, SelectInputgrupoindigena, SelectInputInstitucionEdu, SelectInputLenguaIndigena, SelectInputLocalidad, SelectInputMunicipio, SelectInputNacimiento} from "../selectinput";
 import '../Pages/pages.css';
 import Input from "../input";
 import AuthService from "../services/auth.service";
+import swal from "sweetalert";
 
 export const Reinscripcion = () => {
 
@@ -17,8 +18,6 @@ export const Reinscripcion = () => {
   //**                    */
   const [data, setData ] = useState([]);
 
-  console.log(currentUser.token)
-
 
   useEffect(() => {
       axios.get(API_URL + 'alumnos/json/' + currentUser.userId, { headers:{ 'Authorization' : 'Bearer ' + currentUser.token}})
@@ -27,6 +26,19 @@ export const Reinscripcion = () => {
           setData(res.data)
       }).catch(err => console.log(err))
   }, []);
+  const mostrarAlertaReinscripcion=()=>{
+    swal({
+      title:"Reinscripcion",
+      text:"Estás seguro que deseas Reinscribirte?",
+      icon:"warning",
+      buttons:["No", "Si"]
+    }).then(respuesta=>{
+      if(respuesta){
+        swal({text:"Se han Reinscrito correctamente",
+      icon:"success"})
+      }
+    })
+  }
     const[usuario, cambiarUsuario]= useState({Campo:'', valido: null});
     const[nombre, cambiarNombre]= useState({Campo:'', valido: null});
     const[password, cambiarPassword]= useState({Campo:'', valido: null});
@@ -79,7 +91,7 @@ export const Reinscripcion = () => {
            name="Ncontrol"
            leyendaError=""
            expresionRegular={expresiones.usuario}
-           
+           disabled
            />
            <Input
            estado={nombre}
@@ -89,32 +101,36 @@ export const Reinscripcion = () => {
            name="NombreCompleto"
            leyendaError=""
            expresionRegular={expresiones.nombre}
+           disabled
            />
            <Input
            estado={nombre}
            tipo="text"
            label="Oferta Educativa"
-           placeholder="Ingenieria x"
+           placeholder={data.ofertaEducativa?.carrera}
            name="OfertaEdu"
            leyendaError=""
            expresionRegular={expresiones.nombre}
+           disabled
            />
            <Input
            estado={nombre}
            tipo="text"
            label="Plan De Estudios"
-           placeholder="Ilog-2009-202"
+           placeholder={data.planEstudio?.clave}
            name="PlanEstu"
            leyendaError=""
            expresionRegular={expresiones.nombre}
+           disabled
            />
            <Input
            estado={nombre}
            tipo="number"
            label="Versión"
-           placeholder="2014"
+           placeholder={data.planEstudioVersion?.version}
            name="Version"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
@@ -123,54 +139,61 @@ export const Reinscripcion = () => {
            placeholder="9"
            name="PeriodoRei"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
            tipo="number"
            label="Créditos cursados"
-           placeholder="229"
+           placeholder={data.alumnoDetalle?.creditosCursados}
            name="CreditosCur"
            leyendaError=""
+           disabled
            />
             <Input
            estado={nombre}
            tipo="number"
            label="Créditos totales"
-           placeholder="260"
+           placeholder={data.alumnoDetalle?.creditosTotales}
            name="Creditostota"
            leyendaError=""
+           disabled
            />
              <Input
            estado={nombre}
            tipo="number"
            label="Asignatura(s) a repetir"
-           placeholder="0"
+           placeholder={data.alumnoDetalle?.asignaturasRepeticion}
            name="Asignaturarepe"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
            tipo="number"
            label="Asignatura(s) a especial"
-           placeholder="0"
+           placeholder={data.alumnoDetalle?.asignaturasEspecial}
            name="Asignaturaespe"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
            tipo="number"
            label="Promedio"
-           placeholder="91"
+           placeholder={data.alumnoDetalle?.promedio}
            name="Promedio"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
            tipo="number"
            label="Porcentaje de Avance"
-           placeholder="88"
+           placeholder={data.alumnoDetalle?.porcentajeAvanceCreditos}
            name="Porcentajeavance"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
@@ -179,31 +202,39 @@ export const Reinscripcion = () => {
            placeholder="No"
            name="Comiteaca"
            leyendaError=""
+           disabled
            />
            <Input
            estado={nombre}
            tipo="numbre"
            label="Créditos de tutoría"
-           placeholder="3"
+           placeholder={data.tutoriasPuntos}
            name="Creditostuto"
            leyendaError=""
+           disabled
            />
            <Input
            estado={usuario}
            tipo="text"
            label="Período escolar"
-           placeholder="2022B-AGO 2022-ENE 2023"
+           placeholder={data.alumnoDetalle?.periodoEscolar}
            name="Periodoesco"
            leyendaError=""
+           disabled
            />
            <Input
            estado={usuario}
            tipo="text"
            label="Estatus"
-           placeholder="Reinscrito"
+           placeholder={data.estatus?.estatus}
            name="Estatus"
            leyendaError=""
+           disabled
            />
+
+            <h1 className="Titulo3"></h1>
+
+            <Botonenviar onClick={()=>mostrarAlertaReinscripcion()}>Reinscribir</Botonenviar>
 
 
         </Formulario>

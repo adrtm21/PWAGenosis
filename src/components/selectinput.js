@@ -292,3 +292,96 @@ export const SelectInputNacimiento=() =>{
       </Box>
     );
   }
+
+  export const SelectInputserviciomedico=() =>{
+    return (
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native" >
+          Servicio Médico
+          </InputLabel>
+          <NativeSelect
+            defaultValue={0}
+            inputProps={{
+              name: 'servicio medico',
+              id: 'uncontrolled-native',
+              
+            }}
+          >
+            <option value={1}>pemex</option>
+            <option value={2}>imss</option>
+            <option value={3}>isste</option>
+          </NativeSelect>
+        </FormControl>
+      </Box>
+    );
+  }
+  export const SelectInputtiposangre=() =>{
+    return (
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native" >
+          Tipo de sangre
+          </InputLabel>
+          <NativeSelect
+            defaultValue={0}
+            inputProps={{
+              name: 'tipo sangre',
+              id: 'uncontrolled-native',
+              
+            }}
+          >
+            <option value={1}>a+</option>
+            <option value={2}>b+</option>
+            <option value={3}>c</option>
+          </NativeSelect>
+        </FormControl>
+      </Box>
+    );
+  }
+  export const SelectInputDiscapacidad=() =>{
+    return (
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native" >
+          Discapacidad
+          </InputLabel>
+          <NativeSelect
+            defaultValue={0}
+            inputProps={{
+              name: 'Discapacidad',
+              id: 'uncontrolled-native',
+              
+            }}
+          >
+            <option value={1}>si</option>
+            <option value={2}>no</option>
+            <option value={3}>leve</option>
+          </NativeSelect>
+        </FormControl>
+      </Box>
+    );
+  }
+  export const SelectInputBeca=() =>{
+    return (
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native" >
+          Beca
+          </InputLabel>
+          <NativeSelect
+            defaultValue={0}
+            inputProps={{
+              name: 'beca',
+              id: 'uncontrolled-native',
+              
+            }}
+          >
+            <option value={1}>Beca de jovenes escribiendo el futuro</option>
+            <option value={2}>no</option>
+            <option value={3}>leve</option>
+          </NativeSelect>
+        </FormControl>
+      </Box>
+    );
+  }

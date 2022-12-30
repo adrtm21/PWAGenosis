@@ -4,8 +4,8 @@ import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Horario } from "./components/Pages/Horario";
 import  BoletaCalificaciones  from "./components/Pages/BoletaCalificaciones";
-import  {Blog} from "./components/Pages/Blog";
-import  ContactUs  from "./components/Pages/ContactUs";
+
+
 import { Home } from "./components/Pages/Home";
 import Login from './components/login/login';
 import { InscripcionIngles } from './components/Pages/Inscripcioningles';
@@ -66,7 +66,6 @@ componentWillUnmount() {
           <Route path="/horario" element={<Horario/>} />
           <Route path="/calificaciones" element={<BoletaCalificaciones/>} />
           <Route path="/reinscripcion" element={<Reinscripcion/>} />
-          <Route path="/contactUs" element={<ContactUs/>} />
           <Route path="/actualizaciondatos" element={<ActualizacionDatos/>} />
           <Route path="/inscripcioningles" element={<InscripcionIngles/>} />
           <Route path="/kardex" element={<Kardex/>} />

@@ -85,7 +85,7 @@ export const BoletaCalificaciones = () => {
     setValue(newValue);
   };
 
-  var ES = {};
+  var ES = 0;
   //const keys = Object.keys(data);
   /*
   <li>
@@ -106,13 +106,13 @@ export const BoletaCalificaciones = () => {
       <div className="horario">
         <h6>{currentUser.userName}</h6>
         {
-             data?.map((bit) => (
-              ES = Math.max(bit.calificaciones.length)
+          data.forEach(bit => (
+            ES=Math.max(bit.calificaciones.length)
               
-              ))
-             
-            }
-            
+          ))
+          
+        }
+        {console.log("pplop"+ES)} 
         <hr></hr> 
       </div>
 
@@ -149,7 +149,8 @@ export const BoletaCalificaciones = () => {
             <Tab label="ES3" {...a11yProps(2)}/>
             <Tab label="ES4" {...a11yProps(3)}/>
             <Tab label="ES5" {...a11yProps(4)}/>
-            <Tab label="Calificacion" {...a11yProps(5)}/>
+            <Tab label="ES6" {...a11yProps(5)}/>
+            <Tab label="Calificacion" {...a11yProps(6)}/>
           </Tabs>
         </Box>
         
@@ -170,23 +171,26 @@ export const BoletaCalificaciones = () => {
                 <p>{bit.asignatura.asignatura}</p>
                 </TableCell>
                 <TableCell align='center' size='small'>
-                  <TabPanel value={value} index={0}>
-                  {bit.calificaciones[0]}                 
+                  <TabPanel value={value} index={0} >
+                  {bit.calificaciones[0]?bit.calificaciones[0]:"--:--"}                 
                   </TabPanel>
                   <TabPanel value={value} index={1}>
-                  {bit.calificaciones[1]}
+                  {bit.calificaciones[1]?bit.calificaciones[1]:"--:--"}
                   </TabPanel>
                   <TabPanel value={value} index={2}>
-                  {bit.calificaciones[2]}
+                  {bit.calificaciones[2]?bit.calificaciones[2]:"--:--"}
                   </TabPanel>
                   <TabPanel value={value} index={3}>
-                  {bit.calificaciones[3]}
+                  {bit.calificaciones[3]?bit.calificaciones[3]:"--:--"}
                   </TabPanel>
                   <TabPanel value={value} index={4}>
-                  {bit.calificaciones[4]}
+                  {bit.calificaciones[4]?bit.calificaciones[4]:"--:--"}
                   </TabPanel>
                   <TabPanel value={value} index={5}>
-                  {bit.calificaciones.length}
+                  {bit.calificaciones[5]?bit.calificaciones[5]:"--:--"}
+                  </TabPanel>
+                  <TabPanel value={value} index={6}>
+                  {bit.calificacion?bit.calificacion:"--:--"}
                   </TabPanel>
                 </TableCell>
               </TableRow>
