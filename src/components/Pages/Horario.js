@@ -18,11 +18,6 @@ import Paper from '@mui/material/Paper';
 import AuthService from '../services/auth.service';
 import axios from 'axios';
 
-const Panel = (props) => (
-  <div hidden={props.value !== props.index}>
-   {props.value === props.index &&<Typography>{props.children}</Typography>}
-  </div>
-)
 
 
 
@@ -39,7 +34,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 7 }}>
+        <Box sx={{ p: 2 }}>
           <Typography>{children}</Typography>
         </Box>
       )}

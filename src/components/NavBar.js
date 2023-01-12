@@ -59,7 +59,7 @@ function NavBar() {
                Kardex
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <NavLink
                 exact to="/pagos"
                 activeclassname="active"
@@ -78,7 +78,7 @@ function NavBar() {
               >
                Evaluación Docente
               </NavLink>
-            </li>
+            </li>*/}
             <li className="nav-item">
               <NavLink
                 exact to="/actualizaciondatos"
@@ -89,7 +89,7 @@ function NavBar() {
                Actualización de Datos
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <NavLink
                 exact to="/inscripcioningles"
                 activeclassname="active"
@@ -120,13 +120,13 @@ function NavBar() {
               >
                 Solicitud De Baja
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink
               exact to="/" 
               activeclassname="nav-links" 
               onClick={logOut}>
-                LogOut
+                Salir
               </NavLink>
             </li>
           </ul>

@@ -73,6 +73,7 @@ componentWillUnmount() {
           <Route path="/evaluaciondocente" element={<EvaluacionDocente/>} />
           <Route path="/inscripcioncomplementaria" element={<InscripcionComplementria/>} />
           <Route path="/solicitudbaja" element={<SolicitudBaja/>} />
+
         </Routes>
       </div>
       <authVerify logOut={this.logOut}/>

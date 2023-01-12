@@ -106,7 +106,7 @@ const Login = () => {
                                 onChange={onChangePassword}
                               />
 
-                              <p className="small mb-3 pb-lg-2"><a class="text-dark-50" href="#!">Olvidaste tu contrasena?</a></p>
+                              <p className="small mb-3 pb-lg-2"><a class="text-dark-50" href="#!">¿Olvidaste tu contrasena?</a></p>
                               <MDBBtn outline className='mx-2 px-5' color='dark' size='lg' disabled={loading}>
                                 {loading && (
                                   <span className="spinner-border spinner-border-sm"></span>
